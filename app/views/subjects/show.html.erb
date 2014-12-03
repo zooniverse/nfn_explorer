@@ -1,0 +1,10 @@
+<h1><%=@subject.id%></h1>
+
+<%= image_tag @subject.image_url, width: 700%>
+
+<h2>Annotations</h2>
+<ul>
+  <% @subject.annotations.each do |ann|%>
+    <li><%=ann["name"]%>  : <%= ann.fields.to_s %> </li>
+  <%end%>
+</ul>
