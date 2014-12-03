@@ -5,10 +5,11 @@ class CreateCollections < ActiveRecord::Migration
       t.string :image
       t.text   :description
       t.string :regions , array: true
-      t.string :ouroboros_id
-      t.string :url
       t.string :external_id
+      t.string :url
       t.timestamps
     end
+
+    add_index :collections, :external_id
   end
 end

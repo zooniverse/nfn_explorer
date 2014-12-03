@@ -7,7 +7,12 @@ class CreateSubjects < ActiveRecord::Migration
       t.string  :external_id
       t.hstore  :metadata
       t.integer :collection_id
+
+
+
       t.timestamps
     end
+    add_index :subjects, :external_id
+    add_index :subjects, :collection_id
   end
 end

@@ -6,7 +6,13 @@ class CreateAnnotations < ActiveRecord::Migration
       t.hstore  :fields
       t.string  :user_id
       t.integer :subject_id
+
       t.timestamps
     end
+
+    add_index :annotations, :subject_id
+    add_index :annotations, :user_id
+    add_index :annotations, :name
+    add_index :annotations, :external_id
   end
 end

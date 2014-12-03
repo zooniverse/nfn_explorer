@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203171510) do
+ActiveRecord::Schema.define(version: 20141203192628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,17 +27,23 @@ ActiveRecord::Schema.define(version: 20141203171510) do
     t.datetime "updated_at"
   end
 
+  add_index "annotations", ["external_id"], name: "index_annotations_on_external_id", using: :btree
+  add_index "annotations", ["name"], name: "index_annotations_on_name", using: :btree
+  add_index "annotations", ["subject_id"], name: "index_annotations_on_subject_id", using: :btree
+  add_index "annotations", ["user_id"], name: "index_annotations_on_user_id", using: :btree
+
   create_table "collections", force: true do |t|
     t.string   "name"
     t.string   "image"
     t.text     "description"
-    t.string   "regions",      array: true
-    t.string   "ouroboros_id"
-    t.string   "url"
+    t.string   "regions",     array: true
     t.string   "external_id"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "collections", ["external_id"], name: "index_collections_on_external_id", using: :btree
 
   create_table "consensus", force: true do |t|
     t.datetime "created_at"
@@ -54,5 +60,9 @@ ActiveRecord::Schema.define(version: 20141203171510) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "subjects", ["collection_id"], name: "index_subjects_on_collection_id", using: :btree
+  add_index "subjects", ["external_id"], name: "index_subjects_on_external_id", using: :btree
+  add_index "subjects", ["state"], name: "index_subjects_on_state", using: :btree
 
 end
