@@ -1,4 +1,4 @@
 class Consensus < ActiveRecord::Base
-  belongs_to: subject
-  had_many: annotations
+  belongs_to :subject
+  has_many :annotations
 end
