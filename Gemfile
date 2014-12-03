@@ -14,6 +14,11 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'pg_search'
 gem 'activerecord-postgres-hstore'
+gem 'mongo'
+gem 'bson_ext'
+
+gem 'active_model_serializers'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -39,4 +44,4 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'pry', group: [:development, :test]
