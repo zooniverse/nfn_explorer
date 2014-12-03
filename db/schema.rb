@@ -18,8 +18,11 @@ ActiveRecord::Schema.define(version: 20141203171510) do
   enable_extension "hstore"
 
   create_table "annotations", force: true do |t|
-    t.string   "type"
+    t.string   "name"
+    t.string   "external_id"
     t.hstore   "fields"
+    t.string   "user_id"
+    t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,9 +31,10 @@ ActiveRecord::Schema.define(version: 20141203171510) do
     t.string   "name"
     t.string   "image"
     t.text     "description"
-    t.string   "regions"
+    t.string   "regions",      array: true
     t.string   "ouroboros_id"
     t.string   "url"
+    t.string   "external_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,6 +50,7 @@ ActiveRecord::Schema.define(version: 20141203171510) do
     t.string   "state"
     t.string   "external_id"
     t.hstore   "metadata"
+    t.integer  "collection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

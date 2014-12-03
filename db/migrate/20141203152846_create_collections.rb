@@ -7,6 +7,7 @@ class CreateCollections < ActiveRecord::Migration
       t.string :regions , array: true
       t.string :ouroboros_id
       t.string :url
+      t.string :external_id
       t.timestamps
     end
   end
