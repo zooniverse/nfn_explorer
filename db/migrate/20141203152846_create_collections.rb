@@ -4,7 +4,7 @@ class CreateCollections < ActiveRecord::Migration
       t.string :name
       t.string :image
       t.text   :description
-      t.string :regions
+      t.string :regions , array: true
       t.string :ouroboros_id
       t.string :url
       t.timestamps
