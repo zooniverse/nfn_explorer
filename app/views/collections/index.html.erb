@@ -1,0 +1,11 @@
+<h1>Collections</h1>
+
+<ul>
+  <%@collections.each do |collection|%>
+    <li>
+      <h2><%=collection.name%></h2>
+      <%= link_to(image_tag(collection.image, width: 200), collection) %>
+    </li>
+  <%end%>
+
+</ul>
