@@ -17,4 +17,9 @@ class Subject < ActiveRecord::Base
       r
     end
   end
+
+  def most_common_for_field(field)
+    ranks =collect_annotations[field].inject({}){|r,a| r[a[:fields].values.first] ||=0;  r[a[:fields].values.first]+=1; r }
+    ranks.sort{|a| a[1]}.last
+  end
 end
