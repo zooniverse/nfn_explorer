@@ -21,7 +21,8 @@ gem 'mongo'
 gem 'bson_ext'
 
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
-
+gem "d3-rails"
+gem 'leaflet-rails'
 
 gem 'active_model_serializers'
 

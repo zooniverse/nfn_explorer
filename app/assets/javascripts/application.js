@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require react
+//= require d3
 //= require react_ujs
+//= require leaflet
 //= require components
-//= require react-ujs
+//= require react_ujs
 //= require_tree .

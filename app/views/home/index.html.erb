@@ -9,14 +9,16 @@
   <%end%>
 </div>
 
-<ul>
-  <% all_collections.each do |collection| %>
+
+<ul class='row'>
+  <%@collections.each do |collection| %>
+
     <h3> <%= link_to collection.name, collection%></h3>
+    <%= react_component('PieChart', width:300, height: 300,  data: collection.stats.to_a.collect{|s| {:label=>s[0].to_s, :value => s[1]}}) %>
     <ul>
       <% collection.stats.each_pair do | stat, val|%>
         <li> <%=stat%> : <%=val%></li>
       <%end%>
-
     </ul>
   <%end%>
 </ul>

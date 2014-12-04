@@ -24,7 +24,8 @@ task :import_annotations => :environment do
   Ouroboros["notes_from_nature_classifications"].find().each_with_index do |classification, count|
 
     puts "done #{count} of #{total}" if count%1000 == 0
-    user_id = classification["user_id"].to_s || classifications["user_ip"]
+
+    user_id = (classification["user_id"] || classification["user_ip"]).to_s
     anns = classification["annotations"].select{|a| a.keys.include? "step"}.collect{|a| [ a["step"], a["value"] ] }
 
     anns.each_with_index do |ann,index|
@@ -40,6 +41,16 @@ task :import_annotations => :environment do
       end
     end
   end
+end
+
+task :generate_common_tags => :environment do
+  Collection.each do |collection|
+
+    collection.subjects.each do |subject|
+      anns = subject.collect_annotations
+    end
+  end
+
 end
 
 task :import_subjects => :environment do
