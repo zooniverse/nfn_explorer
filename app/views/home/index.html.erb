@@ -1,1 +1,22 @@
 <h1>Welcome to the NFN data explorer</h1>
+
+<a href='/collections'></a>
+<a href="/subjects?state=complete">Needs Consensus</a>
+
+<div>
+  <% @need_consensus.each do |subject| %>
+      <%= link_to(image_tag(subject.image_url, width:100),subject)%>
+  <%end%>
+</div>
+
+<ul>
+  <%@collections.each do |collection| %>
+    <h3> <%= link_to collection.name, collection%></h3>
+    <ul>
+      <% collection.stats.each_pair do | stat, val|%>
+        <li> <%=stat%> : <%=val%></li>
+      <%end%>
+
+    </ul>
+  <%end%>
+</ul>
