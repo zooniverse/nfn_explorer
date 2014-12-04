@@ -20,7 +20,8 @@ gem 'activerecord-postgres-hstore'
 gem 'mongo'
 gem 'bson_ext'
 
-gem 'react-rails'
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+
 
 gem 'active_model_serializers'
 
