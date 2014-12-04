@@ -2,7 +2,7 @@ class CollectionsController < ApplicationController
   respond_to :json, :html
 
   def index
-    @collections = Collection.paginate(:page=>params[:page], per_page: 10).all
+    @collections = Collection.paginate(:page=>params[:page], per_page: 12).all
     respond_with @collections
   end
 

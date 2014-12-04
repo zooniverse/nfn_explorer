@@ -1,3 +1,14 @@
 // Place all the styles related to the collections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.subjects-list
+  display: flex
+  flex-wrap: wrap
+
+  .subject
+    width: 25%
+
+@media (max-width: 768px)
+  .subjects-list .subject
+    width: 100%
