@@ -79,3 +79,14 @@ task :trash_all_data => :environment do
   Subject.destroy_all
   Annotation.destroy_all
 end
+
+task :generate_key_lists  => :environment do
+  total = Subject.count
+  Subject.all.each_with_index do |s,index|
+    puts "done #{index} of #{total}"
+    anns = s.collect_annotations
+    fields = anns.keys.inject({}){|r,a| r[a] = s.most_common_for_field(a)[0]; r }
+    s.fields =fields
+    s.save!
+  end
+end
