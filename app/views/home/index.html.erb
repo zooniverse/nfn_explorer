@@ -10,7 +10,7 @@
 </div>
 
 <ul>
-  <%@collections.each do |collection| %>
+  <% all_collections.each do |collection| %>
     <h3> <%= link_to collection.name, collection%></h3>
     <ul>
       <% collection.stats.each_pair do | stat, val|%>
