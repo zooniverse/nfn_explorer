@@ -27,7 +27,7 @@ gem 'leaflet-rails'
 gem 'active_model_serializers'
 
 gem 'will_paginate'
-
+gem 'rails_12factor'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
