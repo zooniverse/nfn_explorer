@@ -1,11 +1,12 @@
 <h1><%=@collection.name%></h1>
 
-<%= image_tag @collection.image %>
+<div class='row'>
+  <%= image_tag @collection.image, :class => "col-md-3" %>
+  <p class='col-md-7'><%=@collection.description%></p>
+</div>
 
-<p><%=@collection.description%></p>
-
-<ul>
+<ul class='row'>
   <%@collection.subjects.random(10).each do |subject|%>
-    <li> <%= link_to(image_tag(subject.image_url, width:100), subject) %></li>
+    <li class='col-md-3'> <%= link_to(image_tag(subject.image_url, width: "100%"), subject) %></li>
   <%end%>
 </ul>
