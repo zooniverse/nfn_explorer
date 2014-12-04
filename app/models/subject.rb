@@ -9,6 +9,12 @@ class Subject < ActiveRecord::Base
   scope :random,                  lambda {|count| order("RANDOM()").limit(count)}
 
   def collect_annotations
-    annotations.inject({}){|r,a| r[a.name] ||= []; r[a.name]= {user_id: a.user_id, fields: a.fields} ; r}
+    annotations.inject({}) do |r,a|
+      if a.fields.values.first.length>0
+        r[a.name] ||= [];
+        r[a.name].push({user_id: a.user_id, fields: a.fields})
+      end
+      r
+    end
   end
 end
