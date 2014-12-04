@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203192628) do
+ActiveRecord::Schema.define(version: 20141204200704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20141203192628) do
     t.integer  "collection_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.hstore   "fields"
   end
 
   add_index "subjects", ["collection_id"], name: "index_subjects_on_collection_id", using: :btree
