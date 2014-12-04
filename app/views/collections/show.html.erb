@@ -5,8 +5,8 @@
   <p class='col-md-7'><%=@collection.description%></p>
 </div>
 
-<ul class='row'>
-  <%@collection.subjects.random(10).each do |subject|%>
-    <li class='col-md-3'> <%= link_to(image_tag(subject.image_url, width: "100%"), subject) %></li>
-  <%end%>
+<ul class="subjects-list">
+  <% @collection.subjects.random(10).each do |subject| %>
+    <li class="subject"><%= link_to(image_tag(subject.image_url, width: "100%"), subject) %></li>
+  <% end %>
 </ul>
