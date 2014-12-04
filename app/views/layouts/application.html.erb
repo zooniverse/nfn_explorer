@@ -36,9 +36,10 @@
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
           <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-          <% @collections.each do |collection| %>
-            <li><a href="/collections/<%= collection.id %>"><%= collection.name %></a></li>
-          <% end %>
+          <li><a href="/collections/herbarium">Herbarium</a></li>
+          <li><a href="/collections/calbug">Calbug</a></li>
+          <li><a href="/collections/ornithological">Ornithological</a></li>
+          <li><a href="/collections/macrofungi">Macrofungi</a></li>
         </ul>
       </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
